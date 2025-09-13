@@ -9,3 +9,16 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.log
+coverage
+.nyc_output
+.cache
+dist
+build
+.next
+.nuxt
+.vuepress/dist
+.serverless
+.fusebox
+.dynamodb
+.tern-port
+.vscode-test
