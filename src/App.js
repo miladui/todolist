@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Routes, Route} from "react-router-dom";
+import {TaskProvider} from "./context/TaskProvider";
+import Home from "./pages/home";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import TaskManagement from "./pages/TaskManagement";
+import Rules from "./pages/rules";
+import AboutUs from "./pages/aboutUs";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <TaskProvider>
+            <Header/>
+            <div className="my-[3rem]">
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/tasks" element={<TaskManagement/>}/>
+                    <Route path="/rules" element={<Rules/>}/>
+                    <Route path="/aboutus" element={<AboutUs/>}/>
+                    <Route path="*" element={<NotFound/>}/>
+                </Routes>
+            </div>
+            <Footer/>
+        </TaskProvider>
+    );
 }
 
 export default App;
